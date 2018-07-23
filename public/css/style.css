@@ -1,7 +1,18 @@
+/* Reset css */
 *{
     padding:0;
     margin:0;
+    font-family: 'Roboto', sans-serif;
 }
+h3,h4{
+    font-size: 15px!important;
+    margin: 0!important;
+    font-weight: normal!important;
+}
+/* End css */
+
+/* Css Menu Top */
+
 .collapse .navbar-collapse{
     background:red!important;
 }
@@ -11,18 +22,14 @@
 .navbar-dark .navbar-nav .nav-link{
     color:white!important;
 }
-li.nav-item::after{
-    width:20px;
-    background:red;
+.menu a.nav-link:hover{
+    text-decoration: underline;
 }
+
 .menu ul li i{
     padding:0 5px;
 }
-@media (min-width: 992px){
-    .navbar-expand-lg .navbar-collapse{
-        justify-content: space-between;
-    }
-}
+
 .search form button{
     background:none;
     border:none;
@@ -35,4 +42,159 @@ li.nav-item::after{
     right: 19px;
     font-size: 17px;
     color: gray;
+    cursor: pointer;
 }
+/* Css of Top Menu */
+
+/* Css Main Content */
+.card-header .bg-info{
+    color:white!important;
+}
+.top-article{
+    border-bottom: 1px solid #e8e8e8;
+    height: auto;
+    line-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.top-article a{
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+.top-article i{
+    display: inline-block;
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    font-size: 12px;
+    font-style: italic;
+}
+.top-article>.fa-user{
+    color:#999999;
+    position: absolute;
+    left: 0;
+}
+.top-article>.fa-user a{
+    padding-left: 3px;
+}
+
+/* End Main Content */
+/* Content */
+.article>.row>.col-lg-4{
+    padding: 0!important;
+    overflow: hidden;
+}
+.article>.row>.col-lg-4 img{
+    transition: 0.3s; 
+    width: 100%;
+    height: 100%;
+}
+.article>.row>.col-lg-4 img:hover{
+    transform: scale(1.5);
+}
+.icon a{
+    color:#717169;
+    font-size: 12px;
+}
+.icon i{
+    color:#717169;
+    font-size: 12px;
+}
+/* End Content */
+/* Sidebar */
+.fanpage i{
+    font-size: 19px;
+    padding-right: 17px;
+}
+.card-body iframe{
+   width: 100%;
+}
+.categories i{
+    font-size: 12px;
+    color:#CCCCCC;
+}
+.categories ul li a{
+    padding:0;
+    transition: 0.4s;
+    color:#333;
+}
+.categories ul li:hover a{
+    transform: translateX(20px);
+}
+.categories ul li:hover{
+    background-color: rgba(0,0,0,.03);
+}
+/* End Side bar */
+
+/* Footer */
+.footer p, .footer a{
+    margin:0;
+    padding:20px 0 20px 0;
+    color:white;
+}
+/* End footer */
+/* Handl responsive Mobile */
+
+    /* Navbar  */
+    /* Reset css */
+    @media (max-width: 575.98px){
+        .col-12{
+            padding:0!important;
+        }
+        div.container{
+            padding: 0;
+            margin:0!important;
+        }
+        #main-content{
+            padding:0;
+        }
+        .card{
+            border-left:0!important;
+            border-right:0!important;
+        }
+        .card-header{
+            border-radius: none!important;
+        }
+        .categories ul li {
+            border-left:none!important;
+            border-right: none!important;
+        }
+        .fanpage{
+            margin: 20px 0;
+        }
+        .icon .col-lg-3.col-0{
+            display: none;
+        }
+        .paginate{
+            margin:auto;
+        }
+    }
+    @media (min-width: 577px) and (max-width:991px){
+        .form-inline .form-control{
+            width: 100%!important;
+        }
+        .article .col-lg-8{
+            padding:0!important;
+        }
+        .article h4{
+            padding-top: 20px;
+        }
+        .container {
+            max-width: 100%!important;
+            padding:0!important;
+            margin:0!important;
+        }
+        .icon .col-lg-3.col-0{
+            display: none;
+        }
+       
+    }
+    @media (min-width: 992px){
+        .navbar-expand-lg .navbar-collapse{
+            justify-content: space-between;
+        }
+    }
+    /* End Navbar */
+
+    /* End responsive mobile */
