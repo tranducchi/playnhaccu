@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/', function(){
+    return view('layouts.home');
+});
+Route::get('/categories', function(){
+    return view('layouts.categories');
+});
+Route::get('/detail-post', function(){
+    return view('layouts.detail-post');
 });
