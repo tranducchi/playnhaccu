@@ -1,27 +1,8 @@
 <div class="col-lg-3 col-md-12 col-12">
     <div class="login text-center mb-3">
-        <div class="card">
-            <div class="card-body">
-                <form>
-                    <div class="form-group row">
-                        <label class="col-form-label col-sm-4">UserName</label>
-                        <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Nhập tài khoản">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Password</label>
-                        <div class="col-sm-8">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <a href="" class="btn btn-primary btn-sm">Đăng nhập</a>
-                        <a href="" class="btn btn-success btn-sm">Đăng kí</a>
-                    </div>
-                </form>
-            </div>
-        </div>
+        <button class="btn btn-info" data-toggle="modal" data-target="#login"><i class="fa fa-user pr-1"></i>Đăng nhập</button>
+        hoặc
+        <button class="btn btn-warning" data-toggle="modal" data-target="#register"><i class="fa fa-pencil pr-1"></i>Đăng kí</button>
     </div>
     <!-- Fanpages -->
     <div class="fanpage mb-4">

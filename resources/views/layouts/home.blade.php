@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('sidebar-left')
+    @include('layouts.sidebar-left')
+@stop
 @section('content')
 <div class="col-lg-6 col-md-12 col-12">
     <div class="card">
@@ -108,8 +111,9 @@
             </div>
             
         </div>
-     <!-- Paginate -->
-    <div class="paginate">
+    </div>
+       <!-- Paginate -->
+    <div class="paginate mt-3">
         <div class="col-lg-6 offset-lg-3 ">
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-end">
@@ -127,7 +131,8 @@
         </div>
     </div>
     <!-- End Paginate -->
-    </div>
 </div>
+@stop
+@section('sidebar-right')
     @include('layouts.sidebar-right')
 @stop
