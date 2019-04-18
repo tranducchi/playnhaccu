@@ -11,13 +11,30 @@
 |
 */
 
-
+// Front-end
 Route::get('/', function(){
-    return view('layouts.home');
+    return view('front-end.home');
 });
 Route::get('/categories', function(){
-    return view('layouts.categories');
+    return view('front-end.categories');
 });
 Route::get('/detail-post', function(){
-    return view('layouts.detail-post');
+    return view('front-end.detail-post');
 });
+Route::get('/list-article', function(){
+    return view('front-end.list-article');
+});
+// Dashboard Admin
+Route::prefix('/admin')->group(function(){
+    Route::get('/', function(){
+        return view('admin.layouts.index');
+    });
+    Route::resource('/category', 'admin\CategoryController');
+    Route::resource('/article', 'admin\ArticleController');
+    Route::resource('/comment', 'admin\CommentController');
+    Route::resource('/user', 'admin\UserController');
+    
+});
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

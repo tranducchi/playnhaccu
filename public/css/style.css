@@ -9,6 +9,12 @@ h3,h4{
     margin: 0!important;
     font-weight: normal!important;
 }
+body{
+    background:#FFFFFF!important;
+}
+.row{
+    margin:0!important;
+}
 /* End css */
 
 /* Css Menu Top */
@@ -98,6 +104,9 @@ h3,h4{
 .article>.row>.col-lg-4 img:hover{
     transform: scale(1.5);
 }
+.article h1{
+    font-size:20px;
+}
 .icon a{
     color:#717169;
     font-size: 12px;
@@ -107,7 +116,7 @@ h3,h4{
     font-size: 12px;
 }
 .main-categories .card{
-    background:#cac9c9;
+    background:#e0e3e6;
     transition:0.2s;
 }
 .main-categories .card a{
@@ -116,6 +125,13 @@ h3,h4{
 }
 .main-categories .card:hover{
     background:white;
+}
+.related h5{
+    font-size:16px;
+}
+.related .col-sm-12.col-lg-4{
+    padding:0;
+  
 }
 /* End Content */
 /* Sidebar */
@@ -155,6 +171,9 @@ h3,h4{
     /* Navbar  */
     /* Reset css */
     @media (max-width: 575.98px){
+        .col-lg-3.col-4{
+            padding:0;
+        }
         .col-12{
             padding:0!important;
         }
@@ -164,6 +183,12 @@ h3,h4{
         }
         #main-content{
             padding:0;
+        }
+        .article h4{
+            margin-top:10px!important;
+        }
+        .article h1{
+            font-size:17px;
         }
         .card{
             border-left:0!important;
@@ -187,6 +212,9 @@ h3,h4{
         }
     }
     @media (min-width: 577px) and (max-width:991px){
+        .related .col-sm-12.col-lg-4{
+            max-width: 32%;
+        }
         .form-inline .form-control{
             width: 100%!important;
         }
@@ -207,6 +235,9 @@ h3,h4{
        
     }
     @media (min-width: 992px){
+        .related .col-sm-12.col-lg-4{
+            max-width: 32%;
+        }
         .navbar-expand-lg .navbar-collapse{
             justify-content: space-between;
         }
@@ -220,3 +251,4 @@ h3,h4{
     /* End Navbar */
 
     /* End responsive mobile */
+/* Loadding */
