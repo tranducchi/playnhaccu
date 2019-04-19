@@ -11,20 +11,29 @@
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">    
                         <li class="nav-item active">
                             <div class="dropdown">
-                                <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"  href="#"><i class="fa fa-microphone" aria-hidden="true"></i>Cảm âm hay</a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"  href="#"><i class="fa fa-folder-open" aria-hidden="true"></i>Nhạc cụ</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Sáo Trúc</a>
+                                    <a class="dropdown-item" href="#">Guitar</a>
+                                    <a class="dropdown-item" href="#">Beatbox</a>
                                 </div>
                             </div>
                            
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="#"><i class="fa fa-folder-open" aria-hidden="true"></i>Beat nhạc</a>
-                        </li>
+                        <li class="nav-item active">
+                                <div class="dropdown">
+                                    <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"  href="#"><i class="fa fa-microphone" aria-hidden="true"></i>Beat Nhạc</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Sáo Trúc</a>
+                                        <a class="dropdown-item" href="#">Guitar</a>
+                                        <a class="dropdown-item" href="#">Beatbox</a>
+                                    </div>
+                                </div>
+                               
+                            </li>
+                          
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-question" aria-hidden="true"></i>Giải đáp thắc mắc</a>
+                            <a class="nav-link" href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i>Bài giảng hướng dẫn</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa fa-plus" aria-hidden="true"></i>Đăng bài viết</a>

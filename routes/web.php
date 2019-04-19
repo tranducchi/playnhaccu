@@ -28,13 +28,14 @@ Route::get('/list-article', function(){
 Route::prefix('/admin')->group(function(){
     Route::get('/', function(){
         return view('admin.layouts.index');
-    });
+    })->middleware('auth');;
     Route::resource('/category', 'admin\CategoryController');
     Route::resource('/article', 'admin\ArticleController');
+    Route::resource('/tag', 'admin\TagController');
     Route::resource('/comment', 'admin\CommentController');
     Route::resource('/user', 'admin\UserController');
     
 });
-
+Route::post('/admin/article/search','admin\ArticleController@search');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

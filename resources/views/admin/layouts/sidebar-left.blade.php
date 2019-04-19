@@ -52,6 +52,17 @@
                 </ul>
             </li>
             <li class="treeview">
+                    <a href="#"><i class="fa fa-tags"></i><span>Tag bài viết</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/admin/tag/create"><i class="fa fa-plus-circle" aria-hidden="true"></i>Thêm mới</a></li>
+                        <li><a href="/admin/tag"><i class="fa fa-list" aria-hidden="true"></i>Danh sách</a></li>
+                    </ul>
+                </li>
+            <li class="treeview">
                 <a href="#"><i class="fa fa-comment"></i><span>Bình luận</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>

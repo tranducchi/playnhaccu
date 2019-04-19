@@ -57,12 +57,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 @if(session('success'))
                
                 <br/>
-                <div class="alert alert-success" id="hienthi">
+                <div class="alert alert-success" id="hienthi"  style="position:absolute; z-index:3; left:40%">
                         <i class="fa fa-check"></i> {{ session('success') }}
                 </div>
                 <script>
                         function an(){
-                            $("#hienthi").delay(100).fadeOut();
+                            $("#hienthi").delay(1500).fadeOut();
                         }
                         setTimeout(an, 0);
                     </script>

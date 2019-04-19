@@ -13,11 +13,11 @@
       <div class="box-body">
         <div class="form-group">
           <label for="exampleInputEmail1">Tiêu bài viết : </label>
-          <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Tên bài viết">
+          <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Tên bài viết">
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Tiêu đề SEO : </label>
-            <input type="text" name="title-seo" class="form-control" id="exampleInputEmail1" placeholder="Tiêu đề chuyên mục SEO">
+            <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Tiêu đề chuyên mục SEO">
           </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Mô tả bài viết : </label>
@@ -29,14 +29,14 @@
           </div>
         <div class="form-group">
           <label for="">Nội dung bài viết : </label>
-          <textarea id="my-editor" name="content"></textarea>
+          <textarea id="my-editor" name="body"></textarea>
         </div>
         <div class="row">
           <div class="col-lg-3">
               <div class="form-group">
                   <label>Chọn chuyên mục : </label>
                   @if (count($cat) > 0)
-                  <select class="form-control" name="parent_id">
+                  <select class="form-control" name="cat_id">
                       <?php menuParent($cat, 0, $str="") ?>
                   </select>
                   @else
@@ -54,7 +54,7 @@
                   <div class="tag-list mt-2">
                     <br/>
                     @foreach ($d as $v)
-                      <a href="#" class="label label-default" id="add_tag">{{$v->name}}</a>,
+                      <a href="{{$v->id}}" class="label label-default" id="add_tag">{{$v->name}}</a>,
                     @endforeach
                     
                   </div>
@@ -63,9 +63,9 @@
           <div class="col-lg-3">
               <div class="form-group">
                   <label for=""><i class="fa fa-eye" aria-hidden="true"></i> Trạng thái hiển thị : </label>
-                    <select class="form-control">
-                      <option selected="selected" value="0">Hiển thị</option>
-                      <option>Ẩn</option>
+                    <select class="form-control" name="visible">
+                      <option selected="selected" value="1">Hiển thị</option>
+                      <option value="0">Ẩn</option>
                     </select>
                 </div>
           </div>
@@ -91,7 +91,7 @@
     CKEDITOR.replace('my-editor', options);
   </script>
   {{-- End CkEditor --}}
-  <?php 
+<?php 
   function menuParent($data,$parent,$str=''){
     foreach($data as $item){
         if($item['parent_id']==$parent){                                           
@@ -105,10 +105,10 @@
 @section('script')
     <script src="/js/bootstrap-tagsinput.min.js"></script>
     <script>
-      $('a#add_tag').click(function(e){
-        e.preventDefault();
-        var dd = $(this).text();
-        $('input#tags').tagsinput('add', dd);
-      });
+        $('a#add_tag').click(function(e){
+          e.preventDefault();
+          var dd = $(this).text();
+          $('input#tags').tagsinput('add',dd);
+        });
     </script>
 @stop

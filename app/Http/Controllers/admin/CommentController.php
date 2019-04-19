@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Comment;
 class CommentController extends Controller
 {
     public function __construct()
@@ -19,8 +19,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.comment.list');
+        $comments = Comment::orderBy('created_at', 'desc')->paginate(10);
+        return view('admin.comment.list', compact('comments'));
     }
 
     /**

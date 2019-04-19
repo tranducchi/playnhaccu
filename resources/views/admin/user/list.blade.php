@@ -25,8 +25,8 @@
             <td class="">{{$i}}</td>
             <td class="">{{$u->name}}</td>
             <td class="">{{$u->email}}</td>
-            <td>{{$u->post->count()}}</td>
-              <td>1/10/2018</td>
+            <td>{{$u->articles->count()}}</td>
+              <td>{{$u->role}}</td>
               <td class="sorting_1"><a href="" class="btn btn-danger  btn-sm"><i class="fa fa-trash-o"></i>
               </a></td>
             </tr>

@@ -19,14 +19,14 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('image');
-            $table->string('description');
-            $table->longText('content');
-            $table->tinyInteger('cat_id')->unsigned();
-            $table->foreign('cat_id')->references('id')->on('articles');
-            $table->tinyInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->longText('description');
+            $table->longText('body');
+            $table->integer('cat_id')->unsigned();
+            $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->tinyInteger('status');
-            $table->integer('views');
+            $table->integer('views')->default(0);
             $table->timestamps();
         });
     }

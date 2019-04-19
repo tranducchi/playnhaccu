@@ -27,6 +27,7 @@ body{
 }
 .navbar-dark .navbar-nav .nav-link{
     color:white!important;
+    font-weight: 500;
 }
 .menu a.nav-link:hover{
     text-decoration: underline;

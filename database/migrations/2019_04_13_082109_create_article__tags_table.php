@@ -13,18 +13,17 @@ class CreateArticleTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('article__tags', function (Blueprint $table) {
+        Schema::create('article_tag', function (Blueprint $table) {
             $table->increments('id');
-            $table->tinyInteger('article_id')->usigned();
-            $table->foreign('article_id')->references('id')->on('articles');
+            $table->integer('article_id')->unsigned();
+            $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
             // link to  id articlees
-            $table->tinyInteger('tag_id')->usigned();
-            $table->foreign('tag_id')->references('id')->on('tags');
+            $table->integer('tag_id')->unsigned();
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
             // link to tag
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -32,6 +31,6 @@ class CreateArticleTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article__tags');
+        Schema::dropIfExists('article_tag');
     }
 }

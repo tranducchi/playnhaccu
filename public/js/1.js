@@ -80,4 +80,6 @@ $(document).ready(function(){
         }
     });
     // End add Category
+    //Tag
+
 });

@@ -6,58 +6,73 @@
     <!-- /.box-header -->
     <br />
     <!-- form start -->
-    <form role="form" enctype="multipart/form-data">
+   
+    <form role="form" method="post" enctype="multipart/form-data" action="/admin/article/{{$articles->id}}">
+      @csrf
+    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+      {{ method_field('PUT') }}
       <div class="box-body">
         <div class="form-group">
           <label for="exampleInputEmail1">Tiêu bài viết : </label>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Tên bài viết">
+          <input type="text" name="name" value="{{$articles->name}}" class="form-control" id="exampleInputEmail1" placeholder="Tên bài viết">
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Tiêu đề SEO : </label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Tiêu đề chuyên mục SEO">
+            <input type="text" name="title" value="{{$articles->title}}" class="form-control" id="exampleInputEmail1" placeholder="Tiêu đề chuyên mục SEO">
           </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Mô tả bài viết : </label>
-          <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Nhập mô tả cho chuyên mục"></textarea>
+          <textarea name="description" id="" cols="30" rows="3" class="form-control" placeholder="Nhập mô tả cho chuyên mục">{{$articles->description}}</textarea>
+        </div>
+        <div class="form-group">
+            <img src="/images/{{$articles->image}}" alt="" width="30%">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Ảnh bài viết :  </label>
-            <input type="file">
+            <input type="file" name="img">
           </div>
         <div class="form-group">
           <label for="">Nội dung bài viết : </label>
-          <input type="text" id="my-editor">
+          <textarea id="my-editor" name="body">{{$articles->description}}</textarea>
         </div>
-       
         <div class="row">
           <div class="col-lg-3">
               <div class="form-group">
                   <label>Chọn chuyên mục : </label>
-                  <select class="form-control">
-                    <option selected="selected" value="0">Mặc định</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
+                  @if (count($cat) > 0)
+                  <select class="form-control" name="cat_id">
+                      <?php menuParent($cat, 0, $str="") ?>
                   </select>
+                  @else
+                  {{"Chuyên mục rỗng"}}
+                  @endif
               </div>
           </div>
           <div class="col-lg-6">
               <div class="form-group">
-                  <label for="">Tags : </label>
+                  <label for=""><i class="fa fa-tags"></i>  Tags : </label>
                   <div class="form-inline">
-                      <input type="text" class="form-control" placeholder="Tag bài viết" style="width:70%">
-                      <button class="btn btn-primary"><i class="fa fa-tag"></i>Thêm</button>
+                      <input type="text" id="tags" class="form-control" value="<?php
+                        foreach($articles->tags as $a){
+                          echo $a->name.',';
+                        }
+                      ?>" placeholder="Tag bài viết" data-role="tagsinput" name="tags">
                   </div>
-                 
+                  <div class="tag-list mt-2">
+                    <br/>
+                    @foreach ($d as $v)
+                      <a href="{{$v->id}}" class="label label-default" id="add_tag">{{$v->name}}</a>,
+                    @endforeach
+                    
+                  </div>
                 </div>
           </div>
           <div class="col-lg-3">
               <div class="form-group">
-                  <label for=""><i class="fa fa-eye" aria-hidden="true"></i>Trạng thái hiển thị : </label>
-                    <select class="form-control">
-                      <option selected="selected" value="0">Hiển thị</option>
-                      <option>Ẩn</option>
+                  <label for=""><i class="fa fa-eye" aria-hidden="true"></i> Trạng thái hiển thị : </label>
+                    <select class="form-control" name="visible">
+                      <option selected="selected" value="1">Hiển thị</option>
+                      <option value="0">Ẩn</option>
                     </select>
                 </div>
           </div>
@@ -68,6 +83,7 @@
         <button type="submit" class="btn btn-primary"><i class="fa fa-repeat"></i> Cập nhật</button>
       </div>
     </form>
+
   </div>
   {{-- Add CkEditor --}}
   <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
@@ -83,4 +99,24 @@
     CKEDITOR.replace('my-editor', options);
   </script>
   {{-- End CkEditor --}}
+<?php 
+  function menuParent($data,$parent,$str=''){
+    foreach($data as $item){
+        if($item['parent_id']==$parent){                                           
+          echo '<option value="'.$item['id'].'">'.$str.$item['name'].'</option>';
+            menuParent($data,$item['id'],$str.'----|  ');
+        }
+    }
+  }
+?>
+@stop
+@section('script')
+    <script src="/js/bootstrap-tagsinput.min.js"></script>
+    <script>
+        $('a#add_tag').click(function(e){
+          e.preventDefault();
+          var dd = $(this).text();
+          $('input#tags').tagsinput('add',dd);
+        });
+    </script>
 @stop

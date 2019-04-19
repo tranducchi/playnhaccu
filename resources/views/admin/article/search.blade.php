@@ -50,21 +50,19 @@
                 <td class="sorting_1">@foreach ($a->tags as $t)
                     <a href="#" class="label label-default"><i class="fa fa-tag"></i>{{$t->name}}</a>
                 @endforeach</td>
-                <td class="sorting_1"><a href="/admin/article/{{$a->id}}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a></td>
-                <td class="sorting_1">
-                    <form method="POST" action="{{ route('article.destroy', [$a->id]) }}" onsubmit="return confirm('Bạn muốn xóa bài viết !');">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                    </form>
-              </td>
+                <td class="sorting_1"><a href="/admin/article/1/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a></td>
+                <td class="sorting_1"><a href="" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
+                </a></td>
               </tr>
               <?php $i++?>
             @endforeach
           </tbody>
-        </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Hiện {{$articles->firstItem()}} <i class="fa fa-arrow-circle-right"></i> {{$articles->lastItem()}} của {{$articles->total()}} bài viết</div>
+        </table></div></div>
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Tìm thấy  {{$articles->count()}} <i class="fa fa-arrow-circle-right"></i>  của từ khóa <b>  {{$key}}</b></div>
       </div>
-      {{$articles->links()}}
+     
       <!-- /.box-body -->
     </div>
     <!-- /.box -->
