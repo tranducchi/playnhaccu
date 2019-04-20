@@ -17,7 +17,7 @@
     <!-- End NavBar -->
 
     <!-- Main content -->
-    <div id="main-content" class="container-fluid mt-5 pt-5">
+    <section id="main-content" class="container-fluid mt-5 pt-5">
             <div class="row">
                 <!-- Sidebar left -->
                 @yield('sidebar-left')
@@ -29,79 +29,11 @@
                 @yield('sidebar-right')
             </div>
             <!-- End row -->
-    </div>
+    </section>
     <!-- End Main Content -->
     <!-- Footer  -->
     @include('front-end.footer')
     <!-- End footer -->
-    <!-- Modal -->
-        <!-- Login -->
-        <!-- Modal -->
-        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-user pr-1"></i>Đăng nhập</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="">Tài khoản</label>
-                        <input type="email" class="form-control" placeholder="Vd: abc@gmail.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Mật khẩu</label>
-                        <input type="password" class="form-control" placeholder="Nhập mật khẩu">
-                    </div>
-                    <div class="form-group">
-                        <a href="">Quên mật khẩu ? </a>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times pr-1"></i>Đóng</button>
-                    <button type="button" class="btn btn-info"><i class="fa fa-sign-in pr-1"></i>Đăng nhập</button>
-                </div>
-                </div>
-            </div>
-        </div>
-        <!-- End login -->
-        <!-- Register -->
-        <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-pencil pr-1"></i>Đăng kí</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="">Họ tên </label>
-                            <input type="text" class="form-control" placeholder="Nhập đầy đủ họ tên">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Tài khoản</label>
-                            <input type="email" class="form-control" placeholder="Vd: abc@gmail.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Mật khẩu</label>
-                            <input type="password" class="form-control" placeholder="Điền mật khẩu ...">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Xác nhận mật khẩu</label>
-                            <input type="password" class="form-control" placeholder="Nhập lại mật khẩu">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times pr-1"></i>Đóng</button>
-                        <button type="button" class="btn btn-warning"><i class="fa fa-pencil pr-1"></i>Đăng kí</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     <!-- Link script -->
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/app.js')}}"></script>

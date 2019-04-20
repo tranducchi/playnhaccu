@@ -47,9 +47,13 @@
                 <td>{{$a->description}}</td>
                 <td class="sorting_1">{{$a->category->name}}</td>
                 <td class="sorting_1">{{$a->created_at->toDateString()}}</td>
-                <td class="sorting_1">@foreach ($a->tags as $t)
-                    <a href="#" class="label label-default"><i class="fa fa-tag"></i>{{$t->name}}</a>
-                @endforeach</td>
+                <td class="sorting_1">
+                  @if($a->status = 1)
+                    {{"Có"}}
+                  @else 
+                    {{"Không"}}
+                  @endif
+                </td>
                 <td class="sorting_1"><a href="/admin/article/{{$a->id}}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a></td>
                 <td class="sorting_1">
                     <form method="POST" action="{{ route('article.destroy', [$a->id]) }}" onsubmit="return confirm('Bạn muốn xóa bài viết !');">

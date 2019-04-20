@@ -1,5 +1,4 @@
-<div id="header">
-       
+<header id="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,20 +12,23 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"  href="#"><i class="fa fa-folder-open" aria-hidden="true"></i>Nhạc cụ</a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Sáo Trúc</a>
-                                    <a class="dropdown-item" href="#">Guitar</a>
-                                    <a class="dropdown-item" href="#">Beatbox</a>
+                                    @foreach ($cat as $c)
+                                        @if($c->parent_id == 0)
+                                        <a class="dropdown-item" href="/chuyen-muc/{{$c->slug}}">{{$c->name}}</a>
+                                        @endif
+                                    @endforeach
                                 </div>
                             </div>
-                           
                         </li>
                         <li class="nav-item active">
                                 <div class="dropdown">
                                     <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"  href="#"><i class="fa fa-microphone" aria-hidden="true"></i>Beat Nhạc</a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Sáo Trúc</a>
-                                        <a class="dropdown-item" href="#">Guitar</a>
-                                        <a class="dropdown-item" href="#">Beatbox</a>
+                                        @foreach ($cat as $c)
+                                            @if($c->parent_id == 0)
+                                            <a class="dropdown-item" href="/chuyen-muc/{{$c->slug}}">{{$c->name}}</a>
+                                            @endif
+                                        @endforeach
                                     </div>
                                 </div>
                                
@@ -36,7 +38,7 @@
                             <a class="nav-link" href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i>Bài giảng hướng dẫn</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-plus" aria-hidden="true"></i>Đăng bài viết</a>
+                            <a class="nav-link" href="#"><i class="fa fa-pencil" aria-hidden="true"></i>Đăng bài viết</a>
                         </li>
                     </ul>
                 </div>
@@ -56,4 +58,4 @@
     </nav>
   
     <!-- End nav -->
-</div>
+</header>

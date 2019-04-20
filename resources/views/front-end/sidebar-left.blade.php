@@ -8,17 +8,17 @@
                <div class="top-article">
                    <a href="">Có em trong đời - Châu Khải Phong</a>
                         <i class="fa fa-eye text-danger ">120 lượt xem</i>
-                        <i class="fa fa-user">.<a href="" class="text-secondary">Chi Tran</a></i>
+                        <i class="fa fa-user"><a href="" class="text-secondary">Chi Tran</a></i>
                </div>
                <div class="top-article">
                    <a href="">Châu Việt Cường - Đời dân chơi</a>
                    <i class="fa fa-eye text-danger ">1 lượt xem</i>
-                   <i class="fa fa-user">.<a href="" class="text-secondary">Mr.Adam</a></i>
+                   <i class="fa fa-user"><a href="" class="text-secondary">Mr.Adam</a></i>
                </div>
                <div class="top-article">
                    <a href="">See you again - Messi</a>
                    <i class="fa fa-eye text-danger ">1 lượt xem</i>
-                   <i class="fa fa-user">.<a href="" class="text-secondary">Marco</a></i>
+                   <i class="fa fa-user"><a href="" class="text-secondary">Marco</a></i>
                </div>
                
             </div>

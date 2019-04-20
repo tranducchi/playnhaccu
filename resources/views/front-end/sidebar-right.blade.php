@@ -1,8 +1,8 @@
 <div class="col-lg-3 col-md-12 col-12">
     <div class="login text-center mb-3">
-        <button class="btn btn-info" data-toggle="modal" data-target="#login"><i class="fa fa-user pr-1"></i>Đăng nhập</button>
+        <a class="btn btn-info text-white" href="#"><i class="fa fa-user pr-1"></i>Đăng nhập</a>
         hoặc
-        <button class="btn btn-warning" data-toggle="modal" data-target="#register"><i class="fa fa-pencil pr-1"></i>Đăng kí</button>
+        <a class="btn btn-warning text-black" href="#"><i class="fa fa-pencil pr-1"></i>Đăng kí</a>
     </div>
     <!-- Fanpages -->
     <div class="fanpage mb-4 d-lg-none d-xl-block">
@@ -25,19 +25,16 @@
    <!-- Categories -->
    <div class="categories">
         <ul class="list-group">
-            <li class="list-group-item active bg-info border border-info"><i class="fa fa-bars pr-2" aria-hidden="true"></i>Chuyên mục</li>
-            <li class="list-group-item">
-                <h4><a href="" class="nav-link"><i class="fa fa-chevron-right pr-2"></i>Cảm âm nhạc trẻ</a></h4>
-            </li>
-            <li class="list-group-item">
-            <h4><a href="" class="nav-link"><i class="fa fa-chevron-right pr-2"></i>Beat A4</a></h4>
-            </li>
-            <li class="list-group-item">
-            <h4><a href="" class="nav-link"><i class="fa fa-chevron-right pr-2"></i>Beat C5</a></h4>
-            </li>
-            <li class="list-group-item">
-            <h4><a href="" class="nav-link"><i class="fa fa-chevron-right pr-2"></i>Beat sáo bầu</a></h4> 
-            </li>
+            <li class="list-group-item active bg-info border border-info">
+                <i class="fa fa-tags pr-2 text-white"></i>Tags</li>
+            
+            @foreach ($tag as $t)
+                <li class="list-group-item">
+                    <h4><a href="/tag/{{$t->slug}}" class="nav-link"><i class="fa fa-chevron-right pr-2"></i>{{$t->name}}</a></h4> 
+                </li> 
+            @endforeach
+            
+          
         </ul>   
    </div>
     <!-- End categories -->

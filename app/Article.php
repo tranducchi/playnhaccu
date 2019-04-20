@@ -18,7 +18,7 @@ class Article extends Model
     // Has Many
     public function comments()
     {
-        return $this->hasMany('App\Comment', 'article_id');
+        return $this->hasMany('App\Comment', 'article_id', 'id');
     }
     public function tags(){
         return $this->belongsToMany('App\Tag');

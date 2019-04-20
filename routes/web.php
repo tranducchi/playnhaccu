@@ -12,29 +12,25 @@
 */
 
 // Front-end
-Route::get('/', function(){
-    return view('front-end.home');
-});
-Route::get('/categories', function(){
-    return view('front-end.categories');
-});
+Route::get('/', 'front_end\ArticleController@index');
+Route::get('/chuyen-muc/{cat}', 'HomeController@category');
+Route::get('tag/{tag}', 'HomeController@tag');
 Route::get('/detail-post', function(){
     return view('front-end.detail-post');
 });
-Route::get('/list-article', function(){
+Route::get('/list/list-article', function(){
     return view('front-end.list-article');
 });
 // Dashboard Admin
 Route::prefix('/admin')->group(function(){
-    Route::get('/', function(){
-        return view('admin.layouts.index');
-    })->middleware('auth');;
+    Route::get('/', 'HomeController@dashboard');
     Route::resource('/category', 'admin\CategoryController');
     Route::resource('/article', 'admin\ArticleController');
     Route::resource('/tag', 'admin\TagController');
-    Route::resource('/comment', 'admin\CommentController');
+    Route::resource('/comment', 'admin\CommentController')->only([
+        'index'
+    ]);
     Route::resource('/user', 'admin\UserController');
-    
 });
 Route::post('/admin/article/search','admin\ArticleController@search');
 Auth::routes();
