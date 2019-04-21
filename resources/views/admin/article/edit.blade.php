@@ -33,19 +33,16 @@
           </div>
         <div class="form-group">
           <label for="">Nội dung bài viết : </label>
-          <textarea id="my-editor" name="body">{{$articles->description}}</textarea>
+          <textarea id="my-editor" name="body">{{$articles->body}}</textarea>
         </div>
         <div class="row">
           <div class="col-lg-3">
               <div class="form-group">
                   <label>Chọn chuyên mục : </label>
-                  @if (count($cat) > 0)
                   <select class="form-control" name="cat_id">
+                  <option value="{{$articles->cat_id}}" selected>{{$articles->category->name}}</option>
                       <?php menuParent($cat, 0, $str="") ?>
                   </select>
-                  @else
-                  {{"Chuyên mục rỗng"}}
-                  @endif
               </div>
           </div>
           <div class="col-lg-6">

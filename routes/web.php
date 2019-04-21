@@ -13,14 +13,12 @@
 
 // Front-end
 Route::get('/', 'front_end\ArticleController@index');
-Route::get('/chuyen-muc/{cat}', 'HomeController@category');
+Route::get('/category/{cat}', 'HomeController@category');
+Route::get('/category/{cat}/{parent}', 'HomeController@showArticleInCategory');
+Route::get('/beat/{cat}', 'HomeController@beat');
 Route::get('tag/{tag}', 'HomeController@tag');
-Route::get('/detail-post', function(){
-    return view('front-end.detail-post');
-});
-Route::get('/list/list-article', function(){
-    return view('front-end.list-article');
-});
+Route::get('/post/{cat}/{slug}','HomeController@viewAricle');
+Route::post('/comment', 'HomeController@addComment');
 // Dashboard Admin
 Route::prefix('/admin')->group(function(){
     Route::get('/', 'HomeController@dashboard');

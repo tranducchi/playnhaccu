@@ -1,4 +1,6 @@
+
 @extends('front-end.app')
+
 @section('content')
     <div class="col-lg-9 mb-2">
             <nav aria-label="breadcrumb">
@@ -10,6 +12,7 @@
                    
                     </li>
                 </ol>
+                @section('title', 'Chuyên Mục '.$c->name)
             </nav>
             <h2 class="text-center pb-3">Danh sách chuyên mục : {{$c->name}}</h2>
             @endforeach
@@ -19,7 +22,7 @@
                             @foreach ($parent_cat as $pc)
                                 <div class="col-sm-12 md-4 col-lg-4 mb-4">
                                     <div class="card text-card">
-                                        <a href="" class="pt-3">
+                                        <a href="/category/{{$c->slug}}/{{$pc->slug}}" class="pt-3">
                                             <div class="card-body text-center">
                                                 <b>{{$pc->name}}</b>
                                                 <p>

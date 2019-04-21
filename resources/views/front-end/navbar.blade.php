@@ -14,7 +14,7 @@
                                 <div class="dropdown-menu">
                                     @foreach ($cat as $c)
                                         @if($c->parent_id == 0)
-                                        <a class="dropdown-item" href="/chuyen-muc/{{$c->slug}}">{{$c->name}}</a>
+                                        <a class="dropdown-item" href="/category/{{$c->slug}}">{{$c->name}}</a>
                                         @endif
                                     @endforeach
                                 </div>
@@ -26,7 +26,7 @@
                                     <div class="dropdown-menu">
                                         @foreach ($cat as $c)
                                             @if($c->parent_id == 0)
-                                            <a class="dropdown-item" href="/chuyen-muc/{{$c->slug}}">{{$c->name}}</a>
+                                            <a class="dropdown-item" href="/beat/{{$c->slug}}">{{$c->name}}</a>
                                             @endif
                                         @endforeach
                                     </div>

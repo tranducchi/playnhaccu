@@ -15,6 +15,9 @@ body{
 .row{
     margin:0!important;
 }
+.badge{
+    font-size: 12px!important;
+}
 /* End css */
 
 /* Css Menu Top */
@@ -93,16 +96,19 @@ body{
     color: #1b1111;
     font-weight: 500;
 }
-.article>.row>.col-lg-4{
+.article>.row>.col-lg-3{
     padding: 0!important;
     overflow: hidden;
 }
-.article>.row>.col-lg-4 img{
+.article>.row>.col-lg-3 img{
     transition: 0.3s; 
     width: 100%;
     height: 100%;
 }
-.article>.row>.col-lg-4 img:hover{
+.col-lg-4.d-none.d-sm-block{
+    padding:0;
+}
+.article>.row>.col-lg-3 img:hover{
     transform: scale(1.5);
 }
 .article h1{
@@ -168,10 +174,12 @@ body{
 }
 /* End footer */
 /* Handl responsive Mobile */
-
     /* Navbar  */
     /* Reset css */
     @media (max-width: 575.98px){
+        .card-body{
+            padding:13px 7px!important;
+        }
         .col-lg-8{
             padding:0!important;
         }

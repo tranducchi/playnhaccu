@@ -1,9 +1,13 @@
 <div class="col-lg-3 col-md-12 col-12">
-    <div class="login text-center mb-3">
-        <a class="btn btn-info text-white" href="#"><i class="fa fa-user pr-1"></i>Đăng nhập</a>
-        hoặc
-        <a class="btn btn-warning text-black" href="#"><i class="fa fa-pencil pr-1"></i>Đăng kí</a>
-    </div>
+    @if(Auth::check())
+        <p class="text-center">Xin chào : <b>{{Auth::user()->name}}</b></p>
+    @else
+        <div class="login text-center mb-3">
+            <a class="btn btn-info text-white" href="#"><i class="fa fa-user pr-1"></i>Đăng nhập</a>
+            hoặc
+            <a class="btn btn-warning text-black" href="#"><i class="fa fa-pencil pr-1"></i>Đăng kí</a>
+        </div>
+    @endif
     <!-- Fanpages -->
     <div class="fanpage mb-4 d-lg-none d-xl-block">
         <div class="card">
@@ -30,7 +34,7 @@
             
             @foreach ($tag as $t)
                 <li class="list-group-item">
-                    <h4><a href="/tag/{{$t->slug}}" class="nav-link"><i class="fa fa-chevron-right pr-2"></i>{{$t->name}}</a></h4> 
+                <h4><a href="/tag/{{$t->slug}}" class="nav-link"><i class="fa fa-chevron-right pr-2"></i>{{$t->name}}<span class="badge badge-pill badge-secondary ml-1">{{$t->articles->count()}}</span></a></h4> 
                 </li> 
             @endforeach
             
