@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Session;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Comment;
@@ -20,19 +20,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('home');
-    }
-    public function dashboard(){
-        $articles = Article::all();
-        $article_count = $articles->count();
-        $cmts = Comment::all(); 
-        $cmt_count =  $cmts->count();
-        $users = User::all();
-        $user_count =  $users->count();
-        return view('admin.layouts.index', compact('article_count', 'cmt_count', 'user_count'));
-    }
+
+
     // call category 
 
     public function category(Request $request, $slug){
@@ -53,10 +42,15 @@ class HomeController extends Controller
         return view('front-end.beat_cat');
     }
     public function viewAricle($cat, $slug){
+        $link = '/post/'.$cat.'/'.$slug;
+        if(!Session::has($link)){
+            Article::where('slug', $slug)->increment('views');
+            Session::put($link,1);
+        }
         $article = Article::where('slug', $slug)->get();
-        $comments = Comment::select('content', 'user_id')->get();
+        
         $related = Article::where('slug','<>', $slug)->take(3)->get();
-        return view('front-end.detail-post', compact('article', 'related', 'comments'));
+        return view('front-end.detail-post', compact('article', 'related'));
     }
     public function addComment(Request $request){
         $validatedData = $request->validate([
@@ -73,6 +67,7 @@ class HomeController extends Controller
         return redirect()->back();
     }
     public function showArticleInCategory($cha, $con){
+
         $parent = Category::where('slug', $cha)->get();
         $cat_par = Category::where('slug', $con)->get();
         foreach($cat_par as $c){

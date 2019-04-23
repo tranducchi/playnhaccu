@@ -8,9 +8,9 @@
             <div class="card-body">
                 @foreach ($new_post as $p)
                 <div class="top-article">
-                <a href="">{{$p->name}}</a>
+                <a href="/post/{{$p->category->slug}}/{{$p->slug}}">{{$p->name}}</a>
                             <i class="fa fa-eye text-danger ">{{$p->views}} lượt xem</i>
-                <i class="fa fa-user"><a href="" class="text-secondary">{{$p->user->name}}</a></i>
+                <i class="fa fa-user"><a href="#" class="text-secondary">{{$p->user->name}}</a></i>
                 </div>
                @endforeach
             </div>
@@ -23,21 +23,13 @@
                
             </div>
             <div class="card-body">
-               <div class="top-article">
-                   <a href="">Có em trong đời co duoc hay </a>
-                   <i class="fa fa-eye text-danger ">120 lượt xem</i>
-                   <i class="fa fa-user"><a href="" class="text-secondary">Chi Tran</a></i>
-               </div>
-               <div class="top-article">
-                   <a href="">Châu Việt Cường - Đời dân chơi</a>
-                   <i class="fa fa-eye text-danger ">10 lượt xem</i>
-                   <i class="fa fa-user"><a href="" class="text-secondary">Hoang Anh</a></i>
-               </div>
-               <div class="top-article">
-                   <a href="">Châu Việt Cường - Đời dân chơi</a>
-                   <i class="fa fa-eye text-danger ">10 lượt xem</i>
-                   <i class="fa fa-user"><a href="" class="text-secondary">Mao Meo</a></i>
-               </div>
+                @foreach ($new_hot as $n)
+                    <div class="top-article">
+                        <a href="">{{$n->name}}</a>
+                        <i class="fa fa-eye text-danger ">{{$n->views}} lượt xem</i>
+                        <i class="fa fa-user"><a href="" class="text-secondary">{{$n->user->name}}</a></i>
+                    </div>
+                @endforeach
             </div>
         </div>
         <!-- End card -->

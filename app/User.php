@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Illuminate\Contracts\Auth\CanResetPassword;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role'
+        'name', 'email','verified', 'password', 'role'
     ];
 
     /**
@@ -29,5 +29,9 @@ class User extends Authenticatable
     public function articles()
     {
         return $this->hasMany('App\Article', 'user_id');
+    }
+    public function verifyUser()
+    {
+        return $this->hasOne('App\VerifyUser');
     }
 }

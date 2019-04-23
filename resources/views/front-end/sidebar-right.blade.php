@@ -1,11 +1,16 @@
 <div class="col-lg-3 col-md-12 col-12">
     @if(Auth::check())
         <p class="text-center">Xin chào : <b>{{Auth::user()->name}}</b></p>
+            <form id="logout-form" action="{{ route('logout') }}" class="text-center" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-outline-danger btn-sm mb-2"><i class="fa fa-sign-out pr-1"></i>Đăng xuất</button>
+            </form>
+       
     @else
         <div class="login text-center mb-3">
-            <a class="btn btn-info text-white" href="#"><i class="fa fa-user pr-1"></i>Đăng nhập</a>
+            <a class="btn btn-info text-white" href="/login"><i class="fa fa-user pr-1"></i>Đăng nhập</a>
             hoặc
-            <a class="btn btn-warning text-black" href="#"><i class="fa fa-pencil pr-1"></i>Đăng kí</a>
+            <a class="btn btn-warning text-black" href="/register"><i class="fa fa-pencil pr-1"></i>Đăng kí</a>
         </div>
     @endif
     <!-- Fanpages -->

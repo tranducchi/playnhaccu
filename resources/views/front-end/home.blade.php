@@ -1,4 +1,5 @@
 @extends('front-end.app')
+@section('title', 'Playnhaccu khơi nguồn cảm hứng âm nhạc !')
 @section('sidebar-left')
     @include('front-end.sidebar-left')
 @stop

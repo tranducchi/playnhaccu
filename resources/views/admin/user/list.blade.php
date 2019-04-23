@@ -27,8 +27,23 @@
             <td class="">{{$u->email}}</td>
             <td>{{$u->articles->count()}}</td>
               <td>{{$u->role}}</td>
-              <td class="sorting_1"><a href="" class="btn btn-danger  btn-sm"><i class="fa fa-trash-o"></i>
+              @if ($u->role == 1)
+              <td>
+              <form method="POST" action="{{ route('article.destroy', [$u->id]) }}" onsubmit="return confirm('Bạn muốn xóa bài viết !');">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+                <button type="submit" disabled class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+             </form>
+            </td>
+              @else
+              <td>
+                <form method="POST" action="{{ route('article.destroy', [$u->id]) }}" onsubmit="return confirm('Bạn muốn xóa bài viết !');">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+              </form>
               </a></td>
+              @endif
             </tr>
             <?php  $i++; ?>
           @endforeach

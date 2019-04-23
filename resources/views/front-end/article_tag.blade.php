@@ -1,6 +1,8 @@
+
 @extends('front-end.app')
 @section('content')
     @foreach ($tag_article as $t)
+    @section('title', 'Tag bài viết'.' '.$t->name)
     <div class="col-lg-9 mb-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">

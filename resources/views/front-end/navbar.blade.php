@@ -37,25 +37,89 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i>Bài giảng hướng dẫn</a>
                         </li>
+                        @if(Auth::check())
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa fa-pencil" aria-hidden="true"></i>Đăng bài viết</a>
                         </li>
+                        @endif
+                        <div class="search  d-none d-lg-block">
+                            <form class="form-inline my-2 my-lg-0" method="post" action="">
+                                <input class="form-control mr-sm-2" name="key" id="key" type="search" placeholder="Tìm gì cũng có :v">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                                @csrf
+                            
+                                        
+                            </form>
+                        </div>
+                        <!-- End Search -->
+                        
+                    
                     </ul>
+                    
                 </div>
             <!-- End Menu -->
-                <div class="search">
-                    <form class="form-inline my-2 my-lg-0" method="post" action="">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Tìm cảm âm" aria-label="Search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
-                <!-- End Search -->
-                
-            
             </div>
         </div>
         <!-- End container -->
     </nav>
-  
+   
     <!-- End nav -->
 </header>
+<div id="countryList" class="d-none d-lg-block">
+</div>
+<div id="hienthi" class="d-block d-lg-none">
+    <input type="text" class="form-control" name="key-mobile" id="key-mobile" placeholder="Tìm gì cũng có :v">
+    @csrf
+    <i class="fa fa-search"></i>
+    <div id="show-search">
+
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+    
+        $('#key').keyup(function(){ 
+            var query = $(this).val();
+            if(query != '')
+            {
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                url:"{{ route('autocomplete.fetch') }}",
+                method:"POST",
+                data:{query:query, _token:_token},
+                success:function(data){
+                $('#countryList').fadeIn();  
+                        $('#countryList').html(data);
+                }
+                });
+            }
+        });
+    
+        $(document).on('click', '#key li', function(){  
+            $('#key').val($(this).text());  
+            $('#countryList').fadeOut();  
+        });
+        // mobile
+        $('#key-mobile').keyup(function(){ 
+            var query = $(this).val();
+            if(query != '')
+            {
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                url:"{{ route('autocomplete.fetch') }}",
+                method:"POST",
+                data:{query:query, _token:_token},
+                success:function(data){
+                $('#show-search').fadeIn();  
+                        $('#show-search').html(data);
+                }
+                });
+            }
+        });
+    
+        $(document).on('click', '#key-mobile li', function(){  
+            $('#key-mobile').val($(this).text());  
+            $('#show-search').fadeOut();  
+        });
+    });
+</script>

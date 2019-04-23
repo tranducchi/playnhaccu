@@ -13,6 +13,7 @@
                     </li>
                 </ol>
                 @section('title', 'Chuyên Mục '.$c->name)
+                @section('description', $c->description)
             </nav>
             <h2 class="text-center pb-3">Danh sách chuyên mục : {{$c->name}}</h2>
             @endforeach

@@ -9,7 +9,11 @@
             <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-            <p>{{Auth::user()->name}}</p>
+            <p>
+                @if (Auth::check())
+                    {{Auth::user()->name}}
+                @endif
+            </p>
             <!-- Status -->
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>

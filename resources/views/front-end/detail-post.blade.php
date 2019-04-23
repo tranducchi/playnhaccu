@@ -2,7 +2,7 @@
 @extends('front-end.app')
 @section('content')
     <div class="col-lg-9 mb-2">
-        <div class="container pl-2">
+        <div class="container">
             @foreach ($article as $a)
                 
      
@@ -22,7 +22,7 @@
                             <i class="fa fa-eye pr-1"></i>Lượt xem : <b>{{$a->views}}</b>
                         </small>
                     </div>
-                    <div class="info-2">
+                    <div class="info-2 d-none d-sm-block">
                             <small>
                             <i class="fa fa-user pr-1"></i>Tác giả : <b>{{$a->user->name}}</b>
                             </small>
@@ -81,10 +81,10 @@
                 </form>
                 @endif
                 <br/>
-                @if($comments->count() > 0)
+                @if($a->comments->count() > 0)
                     
                         <div class="list-comment">
-                                @foreach ($comments as $c)
+                                @foreach ($a->comments as $c)
                                     <div class="card mb-2">
                                         <div class="card-header">
                                             <i class="fa fa-user pr-1"></i>{{$c->user->name}}

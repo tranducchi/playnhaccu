@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="csrf_token()">
     <title>@yield('title')</title>
+    <meta name="description" content="@yield('description')">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+    <script src="{{asset('js/jquery.js')}}"></script>
 </head>
 <body>
     {{-- Navbar --}}
@@ -35,7 +37,8 @@
     @include('front-end.footer')
     <!-- End footer -->
     <!-- Link script -->
-    <script src="{{asset('js/jquery.js')}}"></script>
+
     <script src="{{asset('js/app.js')}}"></script>
+    @yield('script')
 </body>
 </html>
