@@ -36,14 +36,13 @@
         <ul class="list-group">
             <li class="list-group-item active bg-info border border-info">
                 <i class="fa fa-tags pr-2 text-white"></i>Tags</li>
-            
-            @foreach ($tag as $t)
-                <li class="list-group-item">
-                <h4><a href="/tag/{{$t->slug}}" class="nav-link"><i class="fa fa-chevron-right pr-2"></i>{{$t->name}}<span class="badge badge-pill badge-secondary ml-1">{{$t->articles->count()}}</span></a></h4> 
-                </li> 
-            @endforeach
-            
-          
+            @if($tag)
+                @foreach ($tag as $t)
+                    <li class="list-group-item">
+                    <h4><a href="/tag/{{$t->slug}}" class="nav-link"><i class="fa fa-chevron-right pr-2"></i>{{$t->name}}<span class="badge badge-pill badge-secondary ml-1">{{$t->articles->count()}}</span></a></h4> 
+                    </li> 
+                @endforeach
+            @endif
         </ul>   
    </div>
     <!-- End categories -->
