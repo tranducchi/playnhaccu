@@ -1,5 +1,5 @@
 <?php
-
+    $DATABASE_URL=parse_url('postgres://pydyrlpbsdxnti:06518129bed6a0510fd86870b72bda1c17e0d110c6193832af4ac836c9e98356@ec2-174-129-208-118.compute-1.amazonaws.com:5432/dc07d2grl30okk');
 return [
 
     /*
@@ -30,7 +30,6 @@ return [
     | choice installed on your machine before you begin development.
     |
     */
-
     'connections' => [
 
         'sqlite' => [
@@ -68,12 +67,12 @@ return [
         ],
 
         'sqlsrv' => [
-            'driver' => 'sqlsrv',
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'driver' => 'pgsql',
+            'host' => $DATABASE_URL["host"],
+            'port' => $DATABASE_URL["port"],
+            'database' => ltrim($DATABASE_URL["path"], "/"),
+            'username' => $DATABASE_URL["user"],
+            'password' => $DATABASE_URL["pass"],
             'charset' => 'utf8',
             'prefix' => '',
         ],
