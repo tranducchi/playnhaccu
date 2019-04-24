@@ -1,5 +1,5 @@
 <?php
-    $DATABASE_URL=parse_url('postgres://pydyrlpbsdxnti:06518129bed6a0510fd86870b72bda1c17e0d110c6193832af4ac836c9e98356@ec2-174-129-208-118.compute-1.amazonaws.com:5432/dc07d2grl30okk');
+
 return [
 
     /*
@@ -30,6 +30,7 @@ return [
     | choice installed on your machine before you begin development.
     |
     */
+
     'connections' => [
 
         'sqlite' => [
@@ -55,11 +56,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', 'ec2-54-225-76-136.compute-1.amazonaws.com'),
+            'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'd84kplug75a3s2'),
-            'username' => env('DB_USERNAME', 'ispsikftxupirf'),
-            'password' => env('DB_PASSWORD', '2b39f629f6c23165871bd62691de28b9b6f209fcc7091b46756515e9f83d8af3'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
@@ -67,12 +68,12 @@ return [
         ],
 
         'sqlsrv' => [
-            'driver' => 'pgsql',
-            'host' => $DATABASE_URL["host"],
-            'port' => $DATABASE_URL["port"],
-            'database' => ltrim($DATABASE_URL["path"], "/"),
-            'username' => $DATABASE_URL["user"],
-            'password' => $DATABASE_URL["pass"],
+            'driver' => 'sqlsrv',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '1433'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
         ],
