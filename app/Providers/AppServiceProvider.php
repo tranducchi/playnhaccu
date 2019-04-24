@@ -1,7 +1,14 @@
 <?php
 
 namespace App\Providers;
+use Illuminate\Support\Facades\URL;
 
+
+
+// Force SSL in production
+if ($this->app->environment() == 'production') {
+    URL::forceScheme('https');
+}
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use App\Category;
@@ -10,6 +17,7 @@ use App\Article;
 use Illuminate\Support\Facades\View;
 class AppServiceProvider extends ServiceProvider
 {
+    
     /**
      * Bootstrap any application services.
      *
@@ -36,4 +44,5 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+    
 }
