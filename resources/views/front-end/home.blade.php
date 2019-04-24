@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-3">
                             <a href="/post/{{$a->category->slug}}/{{$a->slug}}">
-                            <img src="{{asset('public/images/'.$a['image'])}}" class="img-fluid" alt="{{$a['title']}}">
+                            <img src="{{asset('/images/'.$a['image'])}}" class="img-fluid" alt="{{$a['title']}}">
                             </a>  
                         </div>
                         <div class="col-lg-9 col-9">
