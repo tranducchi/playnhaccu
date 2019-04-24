@@ -76,7 +76,7 @@ class ArticleController extends Controller
             // Filename to store
             $fileNameToStore= $filename.'_'.time().'.'.$extension;
             // Upload Image
-             $path = $request->file('img')->storeAs('/public/images', $fileNameToStore);
+             $path = $request->file('img')->storeAs('/storage/public/images', $fileNameToStore);
         }else {
              $fileNameToStore = 'no-image.png';
         }
