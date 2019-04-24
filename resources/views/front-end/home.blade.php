@@ -45,7 +45,7 @@
         </div>
     </div>
     <!-- Paginate -->
-    <div class="row justify-content-md-center mt-3">
+    <div class="row justify-content-center mt-3">
         {{$ar->links()}}    
     </div>
 </div>
