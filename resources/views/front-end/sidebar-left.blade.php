@@ -28,7 +28,7 @@
                 @if ($new_hot)
                     @foreach ($new_hot as $n)
                     <div class="top-article">
-                        <a href="/post/{{$p->category->slug}}/{{$p->slug}}">{{$p->name}}</a>
+                        <a href="/post/{{$n->category->slug}}/{{$n->slug}}">{{$n->name}}</a>
                         <i class="fa fa-eye text-danger ">{{$n->views}} lượt xem</i>
                         <i class="fa fa-user"><a href="" class="text-secondary">{{$n->user->name}}</a></i>
                     </div>
