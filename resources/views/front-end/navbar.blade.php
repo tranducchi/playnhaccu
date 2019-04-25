@@ -93,9 +93,6 @@
                         console.log(query);
                 }
                 });
-                if(_token == null){
-                    console.log("rong ne");
-                }
             }
         });
     
@@ -120,7 +117,9 @@
                 });
             }
         });
-    
+        $('body').click(function(){
+            $('#countryList').hide();
+        });
         $(document).on('click', '#key-mobile li', function(){  
             $('#key-mobile').val($(this).text());  
             $('#show-search').fadeOut();  
