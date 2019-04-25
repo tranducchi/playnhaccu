@@ -5,6 +5,13 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.navbar-brand i.fa.fa-play-circle {
+    font-size: 32px;
+    position: absolute;
+    left: -28px;
+    top: 3px;
+}
+
 #hienthi i.fa.fa-search {
     top: 28%;
     right: 4%;

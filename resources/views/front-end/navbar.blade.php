@@ -4,7 +4,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="/"><i class="fa fa-play-circle" aria-hidden="true"></i>nhaccu.com</a>
+            <a class="navbar-brand position-relative" href="/"><i class="fa fa-play-circle" aria-hidden="true"></i>nhaccu.com</a>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <div class="menu">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">    
