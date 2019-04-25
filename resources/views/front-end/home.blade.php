@@ -1,5 +1,6 @@
 @extends('front-end.app')
 @section('title', 'Playnhaccu khơi nguồn cảm hứng âm nhạc !')
+@section('description', 'Nơi giao lưu chia sẻ các kiến thức về nhạc cụ như sáo trúc, guitar, hamonica và ngoài ra Playnhaccu còn có rất nhiều các  video chia sẻ kinh nghiệm, bài học miễn phí !')
 @section('sidebar-left')
     @include('front-end.sidebar-left')
 @stop
@@ -16,7 +17,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-3">
                             <a href="/post/{{$a->category->slug}}/{{$a->slug}}">
-                            <img src="{{asset('/images/'.$a['image'])}}" class="img-fluid" alt="{{$a['title']}}">
+                            <img src="/images/{{$a->image}}" class="img-fluid" alt="{{$a['title']}}">
                             </a>  
                         </div>
                         <div class="col-lg-9 col-9">

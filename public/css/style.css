@@ -5,6 +5,12 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.related.mt-3 img {
+    float: left;
+    width: 50%;
+    padding-right: 11px;
+}
+
 .navbar-brand i.fa.fa-play-circle {
     font-size: 32px;
     position: absolute;
@@ -204,6 +210,15 @@ div#countryList ul li:hover a{
     padding:0;
   
 }
+.related .card-body{
+    padding: 10px 8px;
+}
+.related .card-body h5 a{
+    color:#303031;
+}
+.related .view, .related .category{
+    font-size: 12px;
+}
 /* End Content */
 /* Sidebar */
 .fanpage i{
@@ -318,6 +333,9 @@ div#countryList ul li:hover a{
        
     }
     @media (min-width: 992px){
+        .col-lg-9.mb-2{
+            padding: 0 65px;
+        }
         .related .col-sm-12.col-lg-4{
             max-width: 32%;
         }

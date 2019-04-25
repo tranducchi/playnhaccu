@@ -46,9 +46,7 @@
                             <form class="form-inline my-2 my-lg-0" method="post" action="">
                                 <input class="form-control mr-sm-2" name="key" id="key" type="search" placeholder="Tìm gì cũng có :v">
                                 <button type="submit"><i class="fa fa-search"></i></button>
-                                @csrf
-                            
-                                        
+                                @csrf         
                             </form>
                         </div>
                         <!-- End Search -->
@@ -78,7 +76,7 @@
 <script>
     $(document).ready(function(){
     
-        $('#key').keydown(function(){ // ua bi gi dau ak?
+        $('#key').keyup(function(){ // ua bi gi dau ak?
             var query = $(this).val();
             if(query != '')
             {
@@ -88,10 +86,9 @@
                 method:"POST",
                 data:{query:query, _token:_token},
                 success:function(data){
-                $('#countryList').fadeIn();  
-                        $('#countryList').html(data);
-                        console.log(query);
-                }
+                    $('#countryList').fadeIn();  
+                            $('#countryList').html(data);
+                    }
                 });
             }
         });
@@ -111,9 +108,9 @@
                 method:"POST",
                 data:{query:query, _token:_token},
                 success:function(data){
-                $('#show-search').fadeIn();  
+                    $('#show-search').fadeIn();  
                         $('#show-search').html(data);
-                }
+                    }
                 });
             }
         });

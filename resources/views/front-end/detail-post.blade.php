@@ -7,6 +7,7 @@
                 
      
                 @section('title', $a->title)
+                @section('description', $a->description)
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/"><i class="fa fa-home pr-1"></i>Trang chủ</a></li>
@@ -49,9 +50,18 @@
                         <div class="col-sm-12 col-lg-4">
                             <div class="card">
                                 <div class="card-body">
-                                <h5 class="card-title"><a href="/post/{{$r->category->slug}}/{{$r->slug}}">{{$r->title}}</a></h5>
-                                <p class="card-text">{{$r->description}}</p>
-                                    <a href="/post/{{$r->category->slug}}/{{$r->slug}}" class="btn btn-info btn-sm">Xem thêm <i class="fa fa-chevron-circle-right"></i></a>
+                                    <img src="/images/{{$a->image}}" alt="">
+                                    <h5 class="card-title"><a href="/post/{{$r->category->slug}}/{{$r->slug}}">{{$r->title}}</a></h5>
+                                    <div class="icon d-flex justify-content-between">
+                                        <div class="view">
+                                            <i class="fa fa-eye"></i>
+                                            {{$r->views}}
+                                        </div>
+                                        <div class="category">
+                                            <i class="fa fa-folder"></i>
+                                            {{$a->category->name}}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -60,26 +70,30 @@
             </div>
             <div class="comment mt-3">
                 @if(Auth::check())
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                     
-                            @foreach ($errors->all() as $error)
-                               {{ $error }}
-                            @endforeach
-                       
-                    </div>
-                @endif
-                <p><i class="fa fa-pencil pr-1"></i>Bình luận bài viết : </i></p>
-                <form action="/comment" method="post">
-                    @csrf
-                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-                <input type="hidden" name="article_id" value="{{$a->id}}">
-                    <textarea name="content" class="form-control" placeholder="Nhận xét bài viết ..." id="" cols="30" rows="4"></textarea>
-                    <div class="d-flex flex-row-reverse">
-                            <button type="submit" class="btn btn-warning btn-sm mt-2"><i class="fa fa-paper-plane pr-1"></i>Bình luận</button>
-                    </div>
-                </form>
-                @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                        
+                                @foreach ($errors->all() as $error)
+                                {{ $error }}
+                                @endforeach
+                        
+                        </div>
+                
+                    
+                    @endif
+                    <p><i class="fa fa-pencil pr-1"></i>Bình luận bài viết : </i></p>
+                    <form action="/comment" method="post">
+                        @csrf
+                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                    <input type="hidden" name="article_id" value="{{$a->id}}">
+                        <textarea name="content" class="form-control" placeholder="Nhận xét bài viết ..." id="" cols="30" rows="4"></textarea>
+                        <div class="d-flex flex-row-reverse">
+                                <button type="submit" class="btn btn-warning btn-sm mt-2"><i class="fa fa-paper-plane pr-1"></i>Bình luận</button>
+                        </div>
+                    </form>
+                    @else
+                        {!!"<div class='alert alert-warning text-center'>Đăng nhập để bình luận bài viết</div>"!!}
+                    @endif
                 <br/>
                 @if($a->comments->count() > 0)
                     

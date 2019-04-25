@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="csrf_token()">
     <title>@yield('title')</title>
     <meta name="description" content="@yield('description')">
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
