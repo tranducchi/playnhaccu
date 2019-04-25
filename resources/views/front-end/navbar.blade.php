@@ -90,7 +90,7 @@
                 success:function(data){
                 $('#countryList').fadeIn();  
                         $('#countryList').html(data);
-                        console(query);
+                        console.log(query);
                 }
                 });
             }
