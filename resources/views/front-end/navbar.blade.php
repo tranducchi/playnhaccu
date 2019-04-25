@@ -93,6 +93,9 @@
                         console.log(query);
                 }
                 });
+                if(_token == ''){
+                    console.log("rong ne");
+                }
             }
         });
     
