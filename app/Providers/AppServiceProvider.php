@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $new_post = Article::select('slug','name','user_id', 'cat_id','views')->orderBy('id', 'desc')->take(3)->get();
+        $new_post = Article::select('slug','name','user_id', 'cat_id','views')->orderBy('id', 'desc')->take(4)->get();
         $new_hot = Article::orderBy('views', 'desc')->take(5)->get();
         $tag = Tag::all();
         $cat = Category::all();
