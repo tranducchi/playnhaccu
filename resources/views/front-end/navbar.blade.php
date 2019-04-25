@@ -93,7 +93,7 @@
                         console.log(query);
                 }
                 });
-                if(_token == ''){
+                if(_token == null){
                     console.log("rong ne");
                 }
             }
