@@ -78,7 +78,7 @@
 <script>
     $(document).ready(function(){
     
-        $('#key').change(function(){
+        $('#key').keyup(function(){ // ua bi gi dau ak?
             var query = $(this).val();
             if(query != '')
             {
