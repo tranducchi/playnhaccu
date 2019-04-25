@@ -44,7 +44,7 @@
                         @endif
                         <div class="search  d-none d-lg-block">
                             <form class="form-inline my-2 my-lg-0" method="post" action="">
-                                <input class="form-control mr-sm-2" name="key" id="key" type="search" placeholder="Tìm gì cũng có :v">
+                                <input class="form-control mr-sm-2" name="key" id="key" val="" type="search" placeholder="Tìm gì cũng có :v">
                                 <button type="submit"><i class="fa fa-search"></i></button>
                                 @csrf
                             

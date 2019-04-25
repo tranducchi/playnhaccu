@@ -32,7 +32,7 @@ class AutocompleteController extends Controller
                 $output .= '</ul>';
                 echo $output;
             }else{
-                echo '';
+                return 0;
             }
         }
         //
