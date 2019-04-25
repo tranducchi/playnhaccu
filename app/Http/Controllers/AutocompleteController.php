@@ -18,7 +18,7 @@ class AutocompleteController extends Controller
         if($request->get('query'))
         {
             $query = $request->get('query');
-            $data =Article::where('title', 'LIKE', '%'.$query.'%')->take(5)->get();
+            $data =Article::where('slug', 'LIKE', '%'.$query.'%')->take(5)->get();
             $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
                 foreach($data as $row)
                 {
