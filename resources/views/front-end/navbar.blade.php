@@ -78,7 +78,7 @@
 <script>
     $(document).ready(function(){
     
-        $('#key').on('change',function(){ 
+        $('#key').keyup(function(){ 
             var query = $(this).val();
             if(query != '')
             {
