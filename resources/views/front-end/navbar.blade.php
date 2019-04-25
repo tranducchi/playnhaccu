@@ -117,11 +117,6 @@
                 });
             }
         });
-        $('body').click(function(){
-            $('#countryList').fadeIn("fast", function(){        
-                $("#countryList").fadeOut(500);
-            });
-        });
         $(document).on('click', '#key-mobile li', function(){  
             $('#key-mobile').val($(this).text());  
             $('#show-search').fadeOut();  
