@@ -118,7 +118,9 @@
             }
         });
         $('body').click(function(){
-            $('#countryList').hide();
+            $('#countryList').fadeIn("fast", function(){        
+                $("#countryList").fadeOut(500);
+            });
         });
         $(document).on('click', '#key-mobile li', function(){  
             $('#key-mobile').val($(this).text());  
