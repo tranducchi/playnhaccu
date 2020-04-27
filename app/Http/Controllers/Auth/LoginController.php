@@ -43,14 +43,5 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
-    public function authenticated(Request $request, $user) // mặc định Laravel nó đã có rồi đâu cần code thê, ? minh dang dung version 5.6 ah
-    {
-        if (!$user->verified) {
-            auth()->logout();
-            return back()->with('warning', 'Tài khoản chưa được kích hoạt ! Vui lòng đăng nhập Gmail và nhấn vào đường link kích hoạt tài khoản');
-        }
-        return redirect()->intended($this->redirectPath());
-    }
 }
 //bac bo cai nay di 

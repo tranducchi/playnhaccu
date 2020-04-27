@@ -47,9 +47,13 @@ class HomeController extends Controller
             Article::where('slug', $slug)->increment('views');
             Session::put($link,1);
         }
-        $article = Article::where('slug', $slug)->get();
+        $article = Article::firstOrFail()->where('slug', $slug)->get();
+        foreach($article as $a){
+            $id_cat = $a->cat_id;
+        }
         
-        $related = Article::where('slug','<>', $slug)->take(3)->get();
+        $related = Article::firstOrFail()->where('slug','<>', $slug)->where('cat_id',$id_cat)->inRandomOrder()->take(3)->get();
+    
         return view('front-end.detail-post', compact('article', 'related'));
     }
     public function addComment(Request $request){
@@ -73,7 +77,13 @@ class HomeController extends Controller
         foreach($cat_par as $c){
             $id =  $c->id;
         }
-        $arti = Article::where('cat_id', $id)->paginate(5);
+        $arti = Article::where('cat_id', $id)->simplePaginate(10);
         return view('front-end.list-article', compact('cat_par','parent', 'arti'));
+    }
+    public function search(Request $request){
+        $query = $request->get('key');
+        $slug = str_slug($query);
+        $data =Article::where('slug', 'LIKE', '%'.$slug.'%')->simplePaginate(15);
+        return view('front-end.search', compact('data', 'query'));
     }
 }

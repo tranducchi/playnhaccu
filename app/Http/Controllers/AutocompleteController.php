@@ -24,7 +24,7 @@ class AutocompleteController extends Controller
                 foreach($data as $row)
                 {
                     $output .= '
-                    <li><a href="/post/'.$row->category->slug.'/'. $row->slug .'"> <i class="fa fa-microphone pr-2" ></i>'.$row->title.'</a></li>
+                    <li><a href="/post/'.$row->category->slug.'/'. $row->slug .'"> <i class="fa fa-microphone pr-2" ></i>'.str_limit($row->name, 40).'</a></li>
                     ';
                 }
                 $output .= '</ul>';

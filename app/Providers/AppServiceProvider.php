@@ -17,10 +17,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $new_post = Article::select('slug','name','user_id', 'cat_id','views')->orderBy('id', 'desc')->take(4)->get();
-        $new_hot = Article::orderBy('views', 'desc')->take(5)->get();
-        $tag = Tag::all();
-        $cat = Category::all();
+        Schema::defaultStringLength(191); 
+        $new_post = Article::select('id','slug','name','cat_id','views')->orderBy('id', 'desc')->take(8)->get();
+        $new_hot = Article::select('id', 'name','slug', 'cat_id', 'views')->orderBy('views', 'desc')->take(8)->get();
+        $tag = Tag::select('id','name', 'slug')->take('18')->get();
+        $cat = Category::select('id', 'name', 'slug', 'parent_id')->get();
         View::share('cat', $cat);
         View::share('tag', $tag);
         View::share('new_post', $new_post);

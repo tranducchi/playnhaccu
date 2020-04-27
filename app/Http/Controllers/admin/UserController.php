@@ -64,6 +64,9 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $user = User::find($id);
+
+        return view('admin.user.edit',compact(['user',$user]));
     }
 
     /**
@@ -76,6 +79,21 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        if($request->passworld != ''){
+        $request->validate([
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+        }
+        $user = User::find($id);
+        $user->name = $request->user_name;
+        $user->email = $request->user_email;
+        $user->role = $request->role;
+        if($request->passworld != ''){
+            $user->password=bcrypt($request->password);
+        }
+       
+        $user->save();
+        return back()->with('success','Cập nhật thành công !');
     }
 
     /**

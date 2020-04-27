@@ -29,7 +29,7 @@
           </div>
         <div class="form-group">
           <label for="">Nội dung bài viết : </label>
-          <textarea id="my-editor" name="body"></textarea>
+          <textarea id="editor1" name="body"></textarea>
         </div>
         <div class="row">
           <div class="col-lg-3">
@@ -78,7 +78,7 @@
     </form>
   </div>
   {{-- Add CkEditor --}}
-  <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+ 
   <script>
     var options = {
       filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
@@ -88,7 +88,7 @@
     };
   </script>
   <script>
-    CKEDITOR.replace('my-editor', options);
+      CKEDITOR.replace('editor1', options);
   </script>
   {{-- End CkEditor --}}
 <?php 

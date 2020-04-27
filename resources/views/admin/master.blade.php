@@ -22,6 +22,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
         <link rel="stylesheet" href="/dist/css/skins/skin-blue.min.css">
         <link rel="stylesheet" href="/css/admin.css">
+        <script  src="/ckeditor/ckeditor.js"></script>
         <script src="/bower_components/jquery/dist/jquery.min.js"></script>
        
         <!-- Google Font -->

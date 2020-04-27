@@ -42,7 +42,7 @@
                 <td class="">{{$i}}</td>
                 <td class="">{{$a->title}}</td>
                 <td class="">
-                  <img src="/images/{{$a->image}}" width="100%" alt="">
+                  <img src="/storage/public/images/{{$a->image}}" width="100%" alt="">
                 </td>
                 <td>{{$a->description}}</td>
                 <td class="sorting_1">{{$a->category->name}}</td>
@@ -50,7 +50,7 @@
                 <td class="sorting_1">@foreach ($a->tags as $t)
                     <a href="#" class="label label-default"><i class="fa fa-tag"></i>{{$t->name}}</a>
                 @endforeach</td>
-                <td class="sorting_1"><a href="/admin/article/1/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a></td>
+                 <td class="sorting_1"><a href="/admin/article/{{$a->id}}/edit" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a></td>
                 <td class="sorting_1"><a href="" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
                 </a></td>
               </tr>

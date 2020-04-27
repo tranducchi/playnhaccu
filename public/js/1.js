@@ -1,6 +1,23 @@
 $(document).ready(function(){
     // add Categories
-    
+   $(".stop").hide();
+    $('a.next').click(function(e)
+    {
+        sp = $('#speed').val();
+        console.log(sp);
+        var isSp = parseInt(sp);
+        $("html, body").animate({ scrollTop: $(document).height()-$(window).height() }, isSp);
+        $(".next").hide();
+        $('.stop').show();
+        e.preventDefault();
+    });
+    $('a.stop').click(function(e)
+    {
+        $('html,body').stop();
+        $(".stop").hide();
+        $('.next').show();
+        e.preventDefault();
+    });
     $images = $('#demo')
     $('#message').hide();
     $("#img").change(function(event){
@@ -80,6 +97,4 @@ $(document).ready(function(){
         }
     });
     // End add Category
-    //Tag
-
 });

@@ -11,8 +11,15 @@
                     <div class="top-article">
                     <a href="/post/{{$p->category->slug}}/{{$p->slug}}">{{$p->name}}</a>
                                 <i class="fa fa-eye text-danger ">{{$p->views}} lượt xem</i>
-                    <i class="fa fa-user"><a href="#" class="text-secondary">{{$p->user->name}}</a></i>
+                     <i class="fa fa-user">
+                        @foreach($p->tags as $t)
+                         
+                        <a href="/tag/{{$t->slug}}" class="text-secondary">
+                            {{$t->name}}
+                        </a></i>
+                        @endforeach
                     </div>
+                      
                 @endforeach
                 @endif
             </div>
@@ -30,7 +37,11 @@
                     <div class="top-article">
                         <a href="/post/{{$n->category->slug}}/{{$n->slug}}">{{$n->name}}</a>
                         <i class="fa fa-eye text-danger ">{{$n->views}} lượt xem</i>
-                        <i class="fa fa-user"><a href="" class="text-secondary">{{$n->user->name}}</a></i>
+                        <i class="fa fa-user"><a href="" class="text-secondary">
+                            @foreach($n->tags as $t)
+                            {{$t->name}}
+                            @endforeach
+                        </a></i>
                     </div>
                     @endforeach
                 @endif
@@ -38,5 +49,18 @@
             </div>
         </div>
         <!-- End card -->
+        <div class="ads mt-2">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Right -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5047614611394708"
+                 data-ad-slot="2314617745"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
     </div>
 </div>

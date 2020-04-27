@@ -20,13 +20,15 @@
               </div>
           </form>
         </div>
-      </div><div class="row"><div class="col-sm-12"><table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+      </div>
+      <a href="/admin/article/create" class="btn btn-primary"><i class='fa fa-plus'></i>  Viết bài mới</a>
+      <div class="row"><div class="col-sm-12"><table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
           <thead>
             <br/>
             <tr role="row">
               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending">STT</th>
               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Tiêu đề bài viết</th>
-              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Ảnh bài viết</th>
+              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="0.5" colspan="1" aria-label="Platform(s): activate to sort column ascending">Ảnh bài viết</th>
               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Mô tả</th>
               <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"  aria-sort="ascending">Chuyên mục</th>
               <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"  aria-sort="ascending">Ngày đăng</th>
@@ -41,10 +43,10 @@
               <tr role="row" class="odd">
                 <td class="">{{$i}}</td>
                 <td class="">{{$a->title}}</td>
-                <td class="">
-                  <img src="/images/{{$a->image}}" width="100%" alt="">
+                <td class="img-ar">
+                  <img src="/storage/public/images/{{$a->image}}" width="70%" alt="" />
                 </td>
-                <td>{{$a->description}}</td>
+                <td>{{substr($a->description,0,50)}}</td>
                 <td class="sorting_1">{{$a->category->name}}</td>
                 <td class="sorting_1">{{$a->created_at->toDateString()}}</td>
                 <td class="sorting_1">

@@ -13,7 +13,7 @@ class ArticleController extends Controller
     
     public function index(){
         
-       $ar = Article::select('title','slug','image','description', 'user_id', 'cat_id', 'views')->paginate(4);
+       $ar = Article::select('title','slug','image','description', 'user_id', 'cat_id', 'views')->orderBy('created_at', 'desc')->simplePaginate(10);
         return view('front-end.home', compact('ar'));
     }
 }

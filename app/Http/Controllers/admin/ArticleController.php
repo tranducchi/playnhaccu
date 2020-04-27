@@ -85,7 +85,7 @@ class ArticleController extends Controller
         $article = new Article;
         $article->name = $request->name;
         $article->title = $request->title;
-        $article->slug  = str_slug($article->title);
+        $article->slug  = str_slug($article->name);
         $article->image = $fileNameToStore;
         $article->description = $request->description;
         $article->body = $request->body;
@@ -192,7 +192,7 @@ class ArticleController extends Controller
         }
         $article->name = $request->name;
         $article->title = $request->title;
-        $article->slug  = str_slug($article->title);
+        $article->slug  = str_slug($article->name);
         $article->description = $request->description;
         $article->body = $request->body;
         $article->cat_id = $request->cat_id;

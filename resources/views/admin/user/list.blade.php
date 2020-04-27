@@ -15,6 +15,7 @@
               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Email</th>
               <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Số bài viết</th>
               <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"  aria-sort="ascending">Cấp quyền</th>
+              <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"  aria-sort="ascending">Sửa</th>
               <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"  aria-sort="ascending">Xóa</th>
             </tr>
           </thead>
@@ -27,6 +28,7 @@
             <td class="">{{$u->email}}</td>
             <td>{{$u->articles->count()}}</td>
               <td>{{$u->role}}</td>
+              <td><a href="/admin/user/{{$u->id}}/edit" class="btn btn-warning  btn-sm"><i class="fa fa-pencil"></i></a></td>
               @if ($u->role == 1)
               <td>
               <form method="POST" action="{{ route('article.destroy', [$u->id]) }}" onsubmit="return confirm('Bạn muốn xóa bài viết !');">

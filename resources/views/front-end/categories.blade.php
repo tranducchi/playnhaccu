@@ -14,6 +14,9 @@
                 </ol>
                 @section('title', 'Chuyên Mục '.$c->name)
                 @section('description', $c->description)
+                @section('fb-title', $c->name)
+                @section('fb-des', $c->description)
+                @section('fb-img', $c->image)
             </nav>
             <h2 class="text-center pb-3">Danh sách chuyên mục : {{$c->name}}</h2>
             @endforeach

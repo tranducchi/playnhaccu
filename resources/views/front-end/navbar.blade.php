@@ -1,5 +1,5 @@
 <header id="header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,18 +35,18 @@
                             </li>
                           
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i>Bài giảng hướng dẫn</a>
+                            <a class="nav-link" rel='nofollow' href="https://www.youtube.com/channel/UCfrxRVZty51u-Ezc_1ZnguA?view_as=subscriber" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i>Bài giảng hướng dẫn</a>
                         </li>
-                        @if(Auth::check())
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-pencil" aria-hidden="true"></i>Đăng bài viết</a>
-                        </li>
-                        @endif
+                        <!--@if(Auth::check())-->
+                        <!--<li class="nav-item">-->
+                        <!--    <a class="nav-link" href="#"><i class="fa fa-pencil" aria-hidden="true"></i>Đăng bài viết</a>-->
+                        <!--</li>-->
+                        <!--@endif-->
                         <div class="search  d-none d-lg-block">
-                            <form class="form-inline my-2 my-lg-0" method="post" action="">
-                                <input class="form-control mr-sm-2" name="key" id="key" type="search" placeholder="Tìm gì cũng có :v">
+                            <form class="form-inline my-2 my-lg-0" method="get" action="/search">
+                                <input class="form-control mr-sm-2" name="key" id="key" type="search" placeholder="Nhập tên bài hát vd: Lac Troi">
                                 <button type="submit"><i class="fa fa-search"></i></button>
-                                @csrf         
+                                       
                             </form>
                         </div>
                         <!-- End Search -->
@@ -66,9 +66,12 @@
 <div id="countryList" class="d-none d-lg-block">
 </div>
 <div id="hienthi" class="d-block d-lg-none">
-    <input type="text" class="form-control" name="key-mobile" id="key-mobile" placeholder="Tìm gì cũng có :v">
+    <form method="get" action='search'>
+    <input type="text" class="form-control" name="key" id="key-mobile" placeholder="Nhập tên bài hát vd: Lac Troi ">
     @csrf
-    <i class="fa fa-search"></i>
+    <button type="submit"><i class="fa fa-search"></i></button>
+   
+    </form>
     <div id="show-search">
 
     </div>
@@ -76,7 +79,7 @@
 <script>
     $(document).ready(function(){
     
-        $('#key').keyup(function(){ // ua bi gi dau ak?
+        $('#key').keyup(function(){ 
             var query = $(this).val();
             if(query != '')
             {
@@ -91,8 +94,14 @@
                     }
                 });
             }
+             console.log(query);
+            if(query==''){
+                $('#countryList').addClass("hide");
+            }else{
+                $('#countryList').removeClass("hide");
+            }
         });
-    
+       
         $(document).on('click', '#key li', function(){  
             $('#key').val($(this).text());  
             $('#countryList').fadeOut();  
@@ -112,6 +121,11 @@
                         $('#show-search').html(data);
                     }
                 });
+            }
+             if(query==''){
+                $('#show-search').addClass("hide");
+            }else{
+                $('#show-search').removeClass("hide");
             }
         });
         $(document).on('click', '#key-mobile li', function(){  

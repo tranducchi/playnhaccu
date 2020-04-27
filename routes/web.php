@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,16 +12,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/test',function(){
-    dd(\Auth::user()->role); //bựa nhể check ở đây thì ra =]] chịu luôn ==" :) de minh thu ben ban 5.8 xem check o middleware co duoc ko
-});
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-
 // // Front-end
 Route::group(['prefix' => '/'], function() {
     Route::get('/', 'front_end\ArticleController@index');
+    Route::get('/search', 'HomeController@search');
     Route::get('/category/{cat}', 'HomeController@category');
     Route::get('/category/{cat}/{parent}', 'HomeController@showArticleInCategory');
     Route::get('/beat/{cat}', 'HomeController@beat');
@@ -46,3 +44,6 @@ Route::group(['prefix' => '/admin', 'middleware' => ['checkAdmin', 'auth']], fun
 
 
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

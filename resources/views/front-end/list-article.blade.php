@@ -3,8 +3,8 @@
     <div class="col-lg-9 mb-2">
         @foreach ($cat_par as $c)
             @foreach ($parent as $r)
-                
-           
+            @section('title', $c->name)
+            @section('description', $c->description)
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#"><i class="fa fa-home pr-1"></i>Trang chủ</a></li>
